@@ -1,11 +1,10 @@
 import io.grpc.ServerBuilder
-import service.HelloService
+import service.CalculatorService
 
 fun main() {
-    val helloService = HelloService()
     val server = ServerBuilder
         .forPort(15001)
-        .addService(helloService)
+        .addService(CalculatorService())
         .build()
 
     Runtime.getRuntime().addShutdownHook(Thread {

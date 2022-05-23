@@ -4,6 +4,7 @@ import com.google.protobuf.gradle.*
 val protobufVersion = "3.20.1"
 val grpcVersion = "1.46.0"
 val grpcKotlinVersion = "1.2.1"
+val kotlinxCoroutinesVersion = "1.6.1"
 
 plugins {
     id("com.google.protobuf") version "0.8.18"
@@ -25,6 +26,7 @@ dependencies {
     implementation("io.grpc:grpc-stub:$grpcVersion")
     implementation("io.grpc:grpc-kotlin-stub:$grpcKotlinVersion")
     implementation("com.google.protobuf:protobuf-kotlin:$protobufVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
 }
 
 tasks.withType<KotlinCompile> {
