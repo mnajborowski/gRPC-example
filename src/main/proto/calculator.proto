@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+message AddRequest {
+  int64 a = 1;
+  int64 b = 2;
+}
+
+message AddResponse {
+  int64 result = 1;
+}
+
+message SumRequest {
+  repeated int64 x = 1;
+}
+
+message SumResponse {
+  int64 result = 1;
+}
+
+message PrimeNumberDecompositionRequest {
+  int64 number = 1;
+}
+
+message PrimeNumberDecompositionResponse {
+  int64 number = 1;
+}
+
+message ComputeAverageRequest {
+  int32 number = 1;
+}
+
+message ComputeAverageResponse {
+  double average = 1;
+}
+
+message FindMaximumRequest {
+  int32 number = 1;
+}
+
+message FindMaximumResponse {
+  int32 maximum = 1;
+}
+
+service CalculatorService {
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Sum(SumRequest) returns (SumResponse);
+  rpc PrimeNumberDecomposition(PrimeNumberDecompositionRequest) returns (stream PrimeNumberDecompositionResponse);
+  rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse);
+  rpc FindMaximum(stream FindMaximumRequest) returns (stream FindMaximumResponse);
+}
